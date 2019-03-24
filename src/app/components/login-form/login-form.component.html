@@ -1,39 +1,29 @@
-<div class="container userlist-container">
+<div class="container contact-container">
+  <div class="row flex-*-column" *ngIf="!loggedin">
 
-  <div class="row">
+    <div class="col-md-6 col-xl-6">
+      <div class="login">
+        <h1 class='title'>Log in!</h1>
+        <form>
+          <div class="form-gruop">
+            <label>Your email</label>
+            <input type text="text" [(ngModel)]="email" class="form-control">
+          </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 col-xl-6">
-      <div class="search">
-        <form class="form-inline search-form">
-          <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText">
-          <button class="btn btn-outline-primary" (click)="searchText = ''">X</button>
+          <div class="form-gruop">
+            <label>Your password</label>
+            <input type text="password" [(ngModel)]="password" class="form-control">
+          </div>
+
+          <button class="btn btn-primary submit-btn" value="Login" (click)="login()">Log in</button>
         </form>
-        <table class="table table-sm">
-          <thead>
-            <th>Full Name</th>
-            <th>Email</th>
-          </thead>
-          <ng-container *ngFor="let user of usersArray">
-            <tr *ngIf="filterCondition(user)">
-              <td>{{user.fullName}}</td>
-              <td>{{user.email}}</td>
-              <td>
-                <button class="btn btn-outline-info" (click)="usersService.populateForm(user)">Edit</button>
-                <button class="btn btn-outline-danger" (click)="onDelete(user.$key)">Delete</button>
-              </td>
-            </tr>
-          </ng-container>
-        </table>
-        <div class="alert alert-danger" *ngIf="showDeleteMessage">
-          Deleted successfully.
-        </div>
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-6 col-xl-6">
+    <div class="col-xs-6 col-sm-6 col-md-6">
       <div class="register">
-        <h1 class="title">Edit User</h1>
-        <form [formGroup]="this.usersService.form" (ngSubmit)="onSubmit()">
+        <h1 class="title">Register</h1>
+        <form [formGroup]="this.usersService.form" (ngSubmit)="onSubmit(); sendEmail()">
           <input type="hidden" formControlName="$key">
           <div class="form-group">
             <label>Full Name</label>
@@ -75,5 +65,4 @@
     </div>
 
   </div>
-
 </div>

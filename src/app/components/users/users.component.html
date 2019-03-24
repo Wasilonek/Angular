@@ -1,7 +1,7 @@
 <div class="container register-container">
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 ">
-      <form [formGroup]="this.usersService.form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="this.usersService.form" (ngSubmit)="onSubmit(); sendEmail()">
         <input type="hidden" formControlName="$key">
         <div class="form-group">
           <label>Full Name</label>

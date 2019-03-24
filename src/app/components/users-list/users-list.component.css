@@ -1,3 +1,16 @@
-.search-form{
+.userlist-container {
+    margin-top: 20px;
+    border-radius: 5px;
+    background: #fff;
+    padding: 30px 0 40px 0;
+}
+
+.search-form {
     margin-bottom: 20px;
+}
+
+.search,
+.register {
+    width: 80%;
+    margin: auto;
 }

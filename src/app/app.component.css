@@ -1,6 +1,6 @@
 .main-container{
     width: 100vw;
-    height: calc(100vh - 20px);
+    min-height: calc(100vh - 20px);
     background-image: url(../assets/mainBackgroud.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
